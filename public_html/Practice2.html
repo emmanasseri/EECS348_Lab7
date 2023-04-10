@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customizable Web Page</title>
+    <style>
+      .example-paragraph {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Customizable Web Page</h1>
+    <div>
+      <label for="paragraph-color-input">Paragraph Color:</label>
+      <input type="text" id="paragraph-color-input" name="paragraph-color-input"><br>
+      <label for="border-color-input">Border Color:</label>
+      <input type="text" id="border-color-input" name="border-color-input"><br>
+      <label for="border-width-input">Border Width:</label>
+      <input type="range" id="border-width-input" name="border-width-input" min="0" max="10" value="1">
+    </div>
+    <p id="example-paragraph" class="example-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at eros in ex viverra molestie. Quisque nec blandit est. Donec tincidunt turpis a malesuada consectetur. Suspendisse eu sapien enim. Maecenas non justo non nulla semper tincidunt vitae quis mauris. Fusce vel pulvinar nunc. Sed malesuada venenatis sem eget blandit.</p>
+    <script>
+      const paragraphColorInput = document.getElementById("paragraph-color-input");
+      const borderColorInput = document.getElementById("border-color-input");
+      const borderWidthInput = document.getElementById("border-width-input");
+      const exampleParagraph = document.getElementById("example-paragraph");
+      
+      function updateParagraphStyles() {
+        const paragraphColor = paragraphColorInput.value;
+        const borderColor = borderColorInput.value;
+        const borderWidth = borderWidthInput.value;
+        exampleParagraph.style.color = paragraphColor;
+        exampleParagraph.style.borderColor = borderColor;
+        exampleParagraph.style.borderWidth = `${borderWidth}px`;
+      }
+      
+      paragraphColorInput.addEventListener("input", updateParagraphStyles);
+      borderColorInput.addEventListener("input", updateParagraphStyles);
+      borderWidthInput.addEventListener("input", updateParagraphStyles);
+    </script>
+  </body>
+</html>
